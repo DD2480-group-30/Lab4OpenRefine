@@ -121,6 +121,21 @@ public class ImportingUtilities {
             final ImportingJob job,
             ObjectNode config) throws IOException, ServletException {
 
+        Map<String, String> parametersMap = new HashMap<>();
+        for (String key : parameters.stringPropertyNames()) {
+            String value = parameters.getProperty(key);
+            parametersMap.put(key, value);
+        }
+        loadDataAndPrepareJob(request, response, parametersMap, job, config);
+    }
+
+    static public void loadDataAndPrepareJob(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            Map<String, String> parameters,
+            final ImportingJob job,
+            ObjectNode config) throws IOException, ServletException {
+
         ObjectNode retrievalRecord = ParsingUtilities.mapper.createObjectNode();
         JSONUtilities.safePut(config, "retrievalRecord", retrievalRecord);
         JSONUtilities.safePut(config, "state", "loading-raw-data");
@@ -189,6 +204,22 @@ public class ImportingUtilities {
             File rawDataDir,
             ObjectNode retrievalRecord,
             final Progress progress) throws IOException, FileUploadException {
+
+        Map<String, String> parametersMap = new HashMap<>();
+        for (String key : parameters.stringPropertyNames()) {
+            String value = parameters.getProperty(key);
+            parametersMap.put(key, value);
+        }
+        retrieveContentFromPostRequest(request, parametersMap, rawDataDir, retrievalRecord, progress);
+    }
+
+    static public void retrieveContentFromPostRequest(
+            HttpServletRequest request,
+            Map<String, String> parameters,
+            File rawDataDir,
+            ObjectNode retrievalRecord,
+            final Progress progress) throws IOException, FileUploadException {
+
         ArrayNode fileRecords = ParsingUtilities.mapper.createArrayNode();
         JSONUtilities.safePut(retrievalRecord, "files", fileRecords);
 
