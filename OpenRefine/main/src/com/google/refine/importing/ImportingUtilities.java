@@ -132,7 +132,7 @@ public class ImportingUtilities {
     static public void loadDataAndPrepareJob(
             HttpServletRequest request,
             HttpServletResponse response,
-            Map<String,String> parameters,
+            Map<String, String> parameters,
             final ImportingJob job,
             ObjectNode config) throws IOException, ServletException {
 
@@ -204,7 +204,7 @@ public class ImportingUtilities {
             File rawDataDir,
             ObjectNode retrievalRecord,
             final Progress progress) throws IOException, FileUploadException {
-        
+                
         Map<String, String> parametersMap = new HashMap<>();
         for (String key : parameters.stringPropertyNames()) {
             String value = parameters.getProperty(key);
@@ -212,15 +212,15 @@ public class ImportingUtilities {
         }
         retrieveContentFromPostRequest(request, parametersMap, rawDataDir, retrievalRecord, progress);
     }
-    
+
     static public void retrieveContentFromPostRequest(
             HttpServletRequest request,
-            Map<String,String> parameters,
+            Map<String, String> parameters,
             File rawDataDir,
             ObjectNode retrievalRecord,
             final Progress progress) throws IOException, FileUploadException {
-       
-                ArrayNode fileRecords = ParsingUtilities.mapper.createArrayNode();
+
+        ArrayNode fileRecords = ParsingUtilities.mapper.createArrayNode();
         JSONUtilities.safePut(retrievalRecord, "files", fileRecords);
 
         int clipboardCount = 0;
