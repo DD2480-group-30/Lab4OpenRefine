@@ -146,7 +146,6 @@ public class ParsingUtilitiesTests extends RefineTest {
         }
     }
 
-
     @Test
     void testParseParameters() {
         HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
@@ -160,7 +159,7 @@ public class ParsingUtilitiesTests extends RefineTest {
         Map<String, String> expectedResult = new HashMap<>();
         expectedResult.put("param1", "value1");
         expectedResult.put("param2", "value2");
-        
+
         Assert.assertEquals(expectedResult, result);
     }
 }
