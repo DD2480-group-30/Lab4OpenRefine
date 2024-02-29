@@ -46,6 +46,8 @@ import java.time.format.DateTimeParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.TimeZone;
 import java.util.zip.GZIPInputStream;
@@ -102,6 +104,24 @@ public class ParsingUtilities {
 
     public static final DateTimeFormatter ISO8601 = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
     private static final ZoneId defaultZone = ZoneId.systemDefault();
+
+    /**
+     * Parses parameters from the given HttpServletRequest and returns them as a Map.
+     *
+     * @param request HttpServletRequest containing parameters.
+     * @return Map containing parameter names and their first values.
+     */
+    public static Map<String, String> parseParameters(HttpServletRequest request) {
+        Map<String, String> options = new HashMap<>();
+
+        for (Map.Entry<String, String[]> entry : request.getParameterMap().entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue()[0]; 
+            options.put(key, value);
+        }
+
+        return options;
+    }
 
     static public Properties parseUrlParameters(HttpServletRequest request) {
         Properties options = new Properties();
