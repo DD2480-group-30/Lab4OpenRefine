@@ -116,13 +116,17 @@ public class ParsingUtilities {
 
         for (Map.Entry<String, String[]> entry : request.getParameterMap().entrySet()) {
             String key = entry.getKey();
-            String value = entry.getValue()[0]; 
+            String value = entry.getValue()[0];
             options.put(key, value);
         }
 
         return options;
     }
 
+    /**
+     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     */
+    @Deprecated
     static public Properties parseUrlParameters(HttpServletRequest request) {
         Properties options = new Properties();
 
@@ -136,6 +140,10 @@ public class ParsingUtilities {
         return options;
     }
 
+    /**
+     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     */
+    @Deprecated
     static public Properties parseParameters(Properties p, String str) {
         if (str != null) {
             String[] pairs = str.split("&");
@@ -149,6 +157,10 @@ public class ParsingUtilities {
         return p;
     }
 
+    /**
+     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     */
+    @Deprecated
     static public Properties parseParameters(String str) {
         return (str == null) ? null : parseParameters(new Properties(), str);
     }
