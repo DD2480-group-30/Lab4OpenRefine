@@ -103,6 +103,10 @@ public class ParsingUtilities {
     public static final DateTimeFormatter ISO8601 = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
     private static final ZoneId defaultZone = ZoneId.systemDefault();
 
+    /**
+     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     */
+    @Deprecated
     static public Properties parseUrlParameters(HttpServletRequest request) {
         Properties options = new Properties();
 
@@ -116,6 +120,10 @@ public class ParsingUtilities {
         return options;
     }
 
+    /**
+     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     */
+    @Deprecated
     static public Properties parseParameters(Properties p, String str) {
         if (str != null) {
             String[] pairs = str.split("&");
@@ -129,6 +137,10 @@ public class ParsingUtilities {
         return p;
     }
 
+    /**
+     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     */
+    @Deprecated
     static public Properties parseParameters(String str) {
         return (str == null) ? null : parseParameters(new Properties(), str);
     }
