@@ -114,25 +114,30 @@ public class ImportingUtilities {
         public boolean isCanceled();
     }
 
+    /**
+     * @deprecated Use {@link #loadDataAndPrepareJob(HttpServletRequest, HttpServletResponse, Map, ImportingJob, ObjectNode)} instead.
+     */
+    @Deprecated
     static public void loadDataAndPrepareJob(
             HttpServletRequest request,
             HttpServletResponse response,
             Properties parameters,
             final ImportingJob job,
             ObjectNode config) throws IOException, ServletException {
-        
-        Map<String, String> parametersMap = new HashMap<>();
-        for (String key : parameters.stringPropertyNames()) {
-            String value = parameters.getProperty(key);
-            parametersMap.put(key, value);
-        }
+
+        Map<String,String> parametersMap = propsToMap(parameters);
         loadDataAndPrepareJob(request, response, parametersMap, job, config);
+    }
+
+    private static Map<String, String> propsToMap(Properties properties) {
+        return properties.entrySet().stream()
+                .collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
     }
 
     static public void loadDataAndPrepareJob(
             HttpServletRequest request,
             HttpServletResponse response,
-            Map<String, String> parameters,
+            Map<String,String> parameters,
             final ImportingJob job,
             ObjectNode config) throws IOException, ServletException {
 
@@ -198,6 +203,10 @@ public class ImportingUtilities {
         job.setRankedFormats(rankedFormats);
     }
 
+    /**
+     * @deprecated Use {@link #retrieveContentFromPostRequest(HttpServletRequest, Map, File, ObjectNode, Progress)} instead.
+     */
+    @Deprecated
     static public void retrieveContentFromPostRequest(
             HttpServletRequest request,
             Properties parameters,
@@ -205,11 +214,7 @@ public class ImportingUtilities {
             ObjectNode retrievalRecord,
             final Progress progress) throws IOException, FileUploadException {
 
-        Map<String, String> parametersMap = new HashMap<>();
-        for (String key : parameters.stringPropertyNames()) {
-            String value = parameters.getProperty(key);
-            parametersMap.put(key, value);
-        }
+        Map<String,String> parametersMap = propsToMap(parameters);
         retrieveContentFromPostRequest(request, parametersMap, rawDataDir, retrievalRecord, progress);
     }
 
