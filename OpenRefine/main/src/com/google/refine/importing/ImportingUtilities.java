@@ -204,7 +204,7 @@ public class ImportingUtilities {
             File rawDataDir,
             ObjectNode retrievalRecord,
             final Progress progress) throws IOException, FileUploadException {
-                
+
         Map<String, String> parametersMap = new HashMap<>();
         for (String key : parameters.stringPropertyNames()) {
             String value = parameters.getProperty(key);
