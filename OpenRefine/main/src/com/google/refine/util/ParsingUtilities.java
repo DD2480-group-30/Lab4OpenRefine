@@ -124,7 +124,7 @@ public class ParsingUtilities {
     }
 
     /**
-     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     * @deprecated Use {@link #parseParameters(HttpServletRequest request)} instead.
      */
     @Deprecated
     static public Properties parseUrlParameters(HttpServletRequest request) {
@@ -141,7 +141,7 @@ public class ParsingUtilities {
     }
 
     /**
-     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     * @deprecated Use {@link #parseParameters(HttpServletRequest request)} instead.
      */
     @Deprecated
     static public Properties parseParameters(Properties p, String str) {
@@ -158,7 +158,7 @@ public class ParsingUtilities {
     }
 
     /**
-     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     * @deprecated Use {@link #parseParameters(HttpServletRequest request)} instead.
      */
     @Deprecated
     static public Properties parseParameters(String str) {
