@@ -120,7 +120,7 @@ public class ImportingUtilities {
             Properties parameters,
             final ImportingJob job,
             ObjectNode config) throws IOException, ServletException {
-
+        
         Map<String, String> parametersMap = new HashMap<>();
         for (String key : parameters.stringPropertyNames()) {
             String value = parameters.getProperty(key);
@@ -373,8 +373,9 @@ public class ImportingUtilities {
                                     return null;
                                 } else {
                                     // String errorBody = EntityUtils.toString(response.getEntity());
-                                    throw new ClientProtocolException(String.format("HTTP error %d : %s for URL %s", status,
-                                            response.getReasonPhrase(), lastUrl.toExternalForm()));
+                                    throw new ClientProtocolException(
+                                            String.format("HTTP error %d : %s for URL %s", status,
+                                                    response.getReasonPhrase(), lastUrl.toExternalForm()));
                                 }
                             }
                         };
@@ -408,8 +409,9 @@ public class ImportingUtilities {
                 } else {
                     String value = Streams.asString(stream);
                     parameters.put(name, value);
-                    // TODO: We really want to store this on the request so it's available for everyone
-//                    request.getParameterMap().put(name, value);
+                    // TODO: We really want to store this on the request so it's available for
+                    // everyone
+                    // request.getParameterMap().put(name, value);
                 }
 
             } else { // is file content
