@@ -149,10 +149,10 @@ public class ParsingUtilitiesTests extends RefineTest {
     @Test
     void testParseParameters() {
         HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
-        
+
         Mockito.when(request.getParameterMap()).thenReturn(
-                Map.of("param1", new String[]{"value1"},
-                       "param2", new String[]{"value2", "value3"}));
+                Map.of("param1", new String[] { "value1" },
+                        "param2", new String[] { "value2", "value3" }));
 
         Map<String, String> result = ParsingUtilities.parseParameters(request);
 

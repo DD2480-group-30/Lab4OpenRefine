@@ -115,7 +115,9 @@ public class ImportingUtilities {
     }
 
     /**
-     * @deprecated Use {@link #loadDataAndPrepareJob(HttpServletRequest, HttpServletResponse, Map, ImportingJob, ObjectNode)} instead.
+     * @deprecated Use
+     *             {@link #loadDataAndPrepareJob(HttpServletRequest, HttpServletResponse, Map, ImportingJob, ObjectNode)}
+     *             instead.
      */
     @Deprecated
     static public void loadDataAndPrepareJob(
@@ -125,7 +127,7 @@ public class ImportingUtilities {
             final ImportingJob job,
             ObjectNode config) throws IOException, ServletException {
 
-        Map<String,String> parametersMap = propsToMap(parameters);
+        Map<String, String> parametersMap = propsToMap(parameters);
         loadDataAndPrepareJob(request, response, parametersMap, job, config);
     }
 
@@ -137,7 +139,7 @@ public class ImportingUtilities {
     static public void loadDataAndPrepareJob(
             HttpServletRequest request,
             HttpServletResponse response,
-            Map<String,String> parameters,
+            Map<String, String> parameters,
             final ImportingJob job,
             ObjectNode config) throws IOException, ServletException {
 
@@ -204,7 +206,8 @@ public class ImportingUtilities {
     }
 
     /**
-     * @deprecated Use {@link #retrieveContentFromPostRequest(HttpServletRequest, Map, File, ObjectNode, Progress)} instead.
+     * @deprecated Use {@link #retrieveContentFromPostRequest(HttpServletRequest, Map, File, ObjectNode, Progress)}
+     *             instead.
      */
     @Deprecated
     static public void retrieveContentFromPostRequest(
@@ -214,7 +217,7 @@ public class ImportingUtilities {
             ObjectNode retrievalRecord,
             final Progress progress) throws IOException, FileUploadException {
 
-        Map<String,String> parametersMap = propsToMap(parameters);
+        Map<String, String> parametersMap = propsToMap(parameters);
         retrieveContentFromPostRequest(request, parametersMap, rawDataDir, retrievalRecord, progress);
     }
 

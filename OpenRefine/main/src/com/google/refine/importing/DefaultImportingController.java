@@ -79,7 +79,7 @@ public class DefaultImportingController extends Command implements ImportingCont
          * will get read and we won't have a chance to parse the body ourselves. This is why we have to parse the URL
          * for parameters ourselves.
          */
-        Map<String,String> parameters = ParsingUtilities.parseParameters(request);
+        Map<String, String> parameters = ParsingUtilities.parseParameters(request);
         String subCommand = parameters.get("subCommand");
         if ("load-raw-data".equals(subCommand)) {
             doLoadRawData(request, response, parameters);
@@ -96,7 +96,7 @@ public class DefaultImportingController extends Command implements ImportingCont
         }
     }
 
-    private void doLoadRawData(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doLoadRawData(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         long jobID = Long.parseLong(parameters.get("jobID"));
@@ -119,7 +119,7 @@ public class DefaultImportingController extends Command implements ImportingCont
         job.updating = false;
     }
 
-    private void doUpdateFileSelection(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doUpdateFileSelection(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         long jobID = Long.parseLong(parameters.get("jobID"));
@@ -146,7 +146,7 @@ public class DefaultImportingController extends Command implements ImportingCont
         job.updating = false;
     }
 
-    private void doUpdateFormatAndOptions(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doUpdateFormatAndOptions(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         long jobID = Long.parseLong(parameters.get("jobID"));
@@ -186,7 +186,7 @@ public class DefaultImportingController extends Command implements ImportingCont
         job.updating = false;
     }
 
-    private void doInitializeParserUI(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doInitializeParserUI(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         long jobID = Long.parseLong(parameters.get("jobID"));
@@ -215,7 +215,7 @@ public class DefaultImportingController extends Command implements ImportingCont
         }
     }
 
-    private void doCreateProject(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doCreateProject(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         long jobID = Long.parseLong(parameters.get("jobID"));

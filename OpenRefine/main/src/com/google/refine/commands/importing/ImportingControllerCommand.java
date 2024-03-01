@@ -95,7 +95,7 @@ public class ImportingControllerCommand extends Command {
          * will get read and we won't have a chance to parse the body ourselves. This is why we have to parse the URL
          * for parameters ourselves. Don't call request.getParameter() before calling internalImport().
          */
-        Map<String,String> options = ParsingUtilities.parseParameters(request);
+        Map<String, String> options = ParsingUtilities.parseParameters(request);
         String name = options.get("controller");
         if (name != null) {
             return ImportingManager.controllers.get(name);

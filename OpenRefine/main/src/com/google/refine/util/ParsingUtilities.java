@@ -108,7 +108,8 @@ public class ParsingUtilities {
     /**
      * Parses parameters from the given HttpServletRequest and returns them as a Map.
      *
-     * @param request HttpServletRequest containing parameters.
+     * @param request
+     *            HttpServletRequest containing parameters.
      * @return Map containing parameter names and their first values.
      */
     public static Map<String, String> parseParameters(HttpServletRequest request) {

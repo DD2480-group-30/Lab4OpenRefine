@@ -91,7 +91,7 @@ public class GDataImportingController implements ImportingController {
             throws ServletException, IOException {
 
         response.setCharacterEncoding("UTF-8");
-        Map<String,String> parameters = ParsingUtilities.parseParameters(request);
+        Map<String, String> parameters = ParsingUtilities.parseParameters(request);
         String subCommand = parameters.get("subCommand");
         if ("list-documents".equals(subCommand)) {
             doListDocuments(request, response, parameters);
@@ -106,7 +106,7 @@ public class GDataImportingController implements ImportingController {
         }
     }
 
-    private void doListDocuments(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doListDocuments(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         String token = TokenCookie.getToken(request);
@@ -171,7 +171,7 @@ public class GDataImportingController implements ImportingController {
     }
 
     private void doInitializeParserUI(
-            HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+            HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
         String token = TokenCookie.getToken(request);
         String type = parameters.get("docType");
@@ -227,7 +227,7 @@ public class GDataImportingController implements ImportingController {
     }
 
     private void doParsePreview(
-            HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+            HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         String token = TokenCookie.getToken(request);
@@ -285,7 +285,7 @@ public class GDataImportingController implements ImportingController {
         job.updating = false;
     }
 
-    private void doCreateProject(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doCreateProject(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
 
         final String token = TokenCookie.getToken(request);

@@ -246,7 +246,7 @@ public abstract class Command {
         if (request == null) {
             throw new IllegalArgumentException("parameter 'request' should not be null");
         }
-        Map<String,String> options = ParsingUtilities.parseParameters(request);
+        Map<String, String> options = ParsingUtilities.parseParameters(request);
         String token = options.get("csrf_token");
         return token != null && csrfFactory.validToken(token);
     }
