@@ -83,7 +83,7 @@ public class DatabaseImportController implements ImportingController {
             logger.debug("doPost Query String::{}", request.getQueryString());
         }
         response.setCharacterEncoding("UTF-8");
-        Map<String,String> parameters = ParsingUtilities.parseParameters(request);
+        Map<String, String> parameters = ParsingUtilities.parseParameters(request);
 
         String subCommand = parameters.get("subCommand");
 
@@ -131,7 +131,7 @@ public class DatabaseImportController implements ImportingController {
      * @throws ServletException
      * @throws IOException
      */
-    private void doInitializeParserUI(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doInitializeParserUI(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
         if (logger.isDebugEnabled()) {
             logger.debug("::doInitializeParserUI::");
@@ -164,7 +164,7 @@ public class DatabaseImportController implements ImportingController {
      * @throws DatabaseServiceException
      */
     private void doParsePreview(
-            HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+            HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException, DatabaseServiceException {
         if (logger.isDebugEnabled()) {
             logger.debug("JobID::{}", parameters.get("jobID"));
@@ -289,7 +289,7 @@ public class DatabaseImportController implements ImportingController {
      * @param response
      * @param parameters
      */
-    private void doCreateProject(HttpServletRequest request, HttpServletResponse response, Map<String,String> parameters)
+    private void doCreateProject(HttpServletRequest request, HttpServletResponse response, Map<String, String> parameters)
             throws ServletException, IOException {
         if (logger.isDebugEnabled()) {
             logger.debug("DatabaseImportController::doCreateProject:::{}", parameters.get("jobID"));

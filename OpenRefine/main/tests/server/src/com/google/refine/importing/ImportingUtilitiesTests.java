@@ -222,7 +222,7 @@ public class ImportingUtilitiesTests extends ImporterTest {
         when(req.getInputStream()).thenReturn(new MockServletInputStream(is));
 
         ImportingJob job = ImportingManager.createJob();
-        Map<String,String> parameters = ParsingUtilities.parseParameters(req);
+        Map<String, String> parameters = ParsingUtilities.parseParameters(req);
         ObjectNode retrievalRecord = ParsingUtilities.mapper.createObjectNode();
         ObjectNode progress = ParsingUtilities.mapper.createObjectNode();
         try {
@@ -273,7 +273,7 @@ public class ImportingUtilitiesTests extends ImporterTest {
         when(req.getInputStream()).thenReturn(new MockServletInputStream(is));
 
         ImportingJob job = ImportingManager.createJob();
-        Map<String,String> parameters = ParsingUtilities.parseParameters(req);
+        Map<String, String> parameters = ParsingUtilities.parseParameters(req);
         ObjectNode retrievalRecord = ParsingUtilities.mapper.createObjectNode();
         ObjectNode progress = ParsingUtilities.mapper.createObjectNode();
         try {
@@ -538,7 +538,7 @@ public class ImportingUtilitiesTests extends ImporterTest {
         when(req.getInputStream()).thenReturn(new MockServletInputStream(is));
 
         ImportingJob job = ImportingManager.createJob();
-        Map<String,String> parameters = ParsingUtilities.parseParameters(req);
+        Map<String, String> parameters = ParsingUtilities.parseParameters(req);
         ObjectNode retrievalRecord = ParsingUtilities.mapper.createObjectNode();
         Progress dummyProgress = new Progress() {
 

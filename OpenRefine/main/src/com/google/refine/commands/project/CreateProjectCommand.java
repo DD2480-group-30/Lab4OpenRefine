@@ -71,7 +71,7 @@ public class CreateProjectCommand extends Command {
 
         ProjectManager.singleton.setBusy(true);
         try {
-            Map<String,String> parameters = ParsingUtilities.parseParameters(request);
+            Map<String, String> parameters = ParsingUtilities.parseParameters(request);
             ImportingJob job = ImportingManager.createJob();
             ObjectNode config = job.getOrCreateDefaultConfig();
             ImportingUtilities.loadDataAndPrepareJob(
@@ -137,7 +137,7 @@ public class CreateProjectCommand extends Command {
         }
     }
 
-    static private void adjustLegacyOptions(String format, Map<String,String> parameters, ObjectNode optionObj) {
+    static private void adjustLegacyOptions(String format, Map<String, String> parameters, ObjectNode optionObj) {
         if (",".equals(parameters.get("separator"))) {
             JSONUtilities.safePut(optionObj, "separator", ",");
         } else if ("\\t".equals(parameters.get("separator"))) {
@@ -154,7 +154,7 @@ public class CreateProjectCommand extends Command {
     }
 
     static private void adjustLegacyIntegerOption(
-            String format, Map<String,String> parameters, ObjectNode optionObj, String legacyName, String newName) {
+            String format, Map<String, String> parameters, ObjectNode optionObj, String legacyName, String newName) {
 
         String s = parameters.get(legacyName);
         if (s != null && !s.isEmpty()) {
@@ -168,7 +168,7 @@ public class CreateProjectCommand extends Command {
 
     static private void adjustLegacyBooleanOption(
             String format,
-            Map<String,String> parameters,
+            Map<String, String> parameters,
             ObjectNode optionObj,
             String legacyName,
             String newName,
