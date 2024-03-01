@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>767/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Mar 01 12:20:30 CET 2024</td>
+<td>Started on:</td><td>Fri Mar 01 12:30:23 CET 2024</td>
 </tr>
-<tr><td>Total time:</td><td>86 seconds (86070 ms)</td>
+<tr><td>Total time:</td><td>88 seconds (88071 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -181,6 +181,11 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.util.ParsingUtilitiesTests@5f69462f</td></tr>
 <tr>
+<td title='com.google.refine.process.LongRunningProcessTests.serializeLongRunningProcess()'><b>serializeLongRunningProcess</b><br>Test class: com.google.refine.process.LongRunningProcessTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.process.LongRunningProcessTests@54d65dca</td></tr>
+<tr>
 <td title='com.google.refine.browsing.EngineConfigTests.reconstructNullEngineConfig()'><b>reconstructNullEngineConfig</b><br>Test class: com.google.refine.browsing.EngineConfigTests</td>
 <td></td>
 <td>0</td>
@@ -240,11 +245,6 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.importers.SeparatorBasedImporterTests@89ff043</td></tr>
-<tr>
-<td title='com.google.refine.importing.ImportingManagerTests.testStructuredNameSuffixFallback()'><b>testStructuredNameSuffixFallback</b><br>Test class: com.google.refine.importing.ImportingManagerTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.importing.ImportingManagerTests@57c6c58b</td></tr>
 <tr>
 <td title='com.google.refine.commands.project.SetProjectTagsCommandTests.testCSRFProtection()'><b>testCSRFProtection</b><br>Test class: com.google.refine.commands.project.SetProjectTagsCommandTests</td>
 <td></td>
@@ -391,6 +391,11 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.importers.XmlImportUtilitiesTests@24fb8317</td></tr>
 <tr>
+<td title='com.google.refine.importing.ImportingUtilitiesTests.urlImportingInvalidProtocol()'><b>urlImportingInvalidProtocol</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
+<tr>
 <td title='com.google.refine.exporters.XlsExporterTests.getSpreadsheetVersion()'><b>getSpreadsheetVersion</b><br>Test class: com.google.refine.exporters.XlsExporterTests</td>
 <td></td>
 <td>0</td>
@@ -465,49 +470,6 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.importers.SeparatorBasedImporterTests@89ff043</td></tr>
-<tr>
-<td title='com.google.refine.importing.ImportingUtilitiesTests.testZipSlip()'><b>testZipSlip</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
-<td><div><pre>java.lang.IllegalArgumentException: Zip archives with files escaping their root directory are not allowed.
-	at com.google.refine.importing.ImportingUtilities.allocateFile(ImportingUtilities.java:532)
-	at com.google.refine.importing.ImportingUtilitiesTests.testZipSlip(ImportingUtilitiesTests.java:110)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace775486029", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace775486029'><pre>java.lang.IllegalArgumentException: Zip archives with files escaping their root directory are not allowed.
-	at com.google.refine.importing.ImportingUtilities.allocateFile(ImportingUtilities.java:532)
-	at com.google.refine.importing.ImportingUtilitiesTests.testZipSlip(ImportingUtilitiesTests.java:110)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:819)
-	at org.testng.TestRunner.run(TestRunner.java:619)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
-	at org.testng.TestNG.runSuites(TestNG.java:1134)
-	at org.testng.TestNG.run(TestNG.java:1101)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</pre></div></td>
-<td>0</td>
-<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
 <tr>
 <td title='com.google.refine.importers.MarcImporterTests.canParseDeeplyNestedSample()'><b>canParseDeeplyNestedSample</b><br>Test class: com.google.refine.importers.MarcImporterTests</td>
 <td></td>
@@ -593,6 +555,11 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.importers.ExcelImporterTests@703483c2</td></tr>
+<tr>
+<td title='com.google.refine.process.ProcessManagerTests.serializeProcessManager()'><b>serializeProcessManager</b><br>Test class: com.google.refine.process.ProcessManagerTests</td>
+<td></td>
+<td>1</td>
+<td>com.google.refine.process.ProcessManagerTests@17c8dbae</td></tr>
 <tr>
 <td title='com.google.refine.expr.functions.arrays.InArrayTests.testInArrayParameters()'><b>testInArrayParameters</b><br>Test class: com.google.refine.expr.functions.arrays.InArrayTests</td>
 <td></td>
@@ -1061,6 +1028,11 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.commands.browsing.ScatterplotDrawCommandTests@48d46169</td></tr>
+<tr>
+<td title='com.google.refine.importing.EncodingGuesserTests.testEncodingGuesser()'><b>testEncodingGuesser</b><br>Test class: com.google.refine.importing.EncodingGuesserTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.importing.EncodingGuesserTests@25fb792f</td></tr>
 <tr>
 <td title='com.google.refine.importers.SeparatorBasedImporterTests.readTrimsLeadingTrailingWhitespaceOnTrimStrings()'><b>readTrimsLeadingTrailingWhitespaceOnTrimStrings</b><br>Test class: com.google.refine.importers.SeparatorBasedImporterTests<br>Parameters: null</td>
 <td></td>
@@ -1572,6 +1544,49 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.expr.functions.strings.RangeTests@212667ae</td></tr>
 <tr>
+<td title='com.google.refine.importing.ImportingUtilitiesTests.testZipSlip()'><b>testZipSlip</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
+<td><div><pre>java.lang.IllegalArgumentException: Zip archives with files escaping their root directory are not allowed.
+	at com.google.refine.importing.ImportingUtilities.allocateFile(ImportingUtilities.java:530)
+	at com.google.refine.importing.ImportingUtilitiesTests.testZipSlip(ImportingUtilitiesTests.java:111)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1411555753", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1411555753'><pre>java.lang.IllegalArgumentException: Zip archives with files escaping their root directory are not allowed.
+	at com.google.refine.importing.ImportingUtilities.allocateFile(ImportingUtilities.java:530)
+	at com.google.refine.importing.ImportingUtilitiesTests.testZipSlip(ImportingUtilitiesTests.java:111)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+	at org.testng.TestNG.runSuites(TestNG.java:1134)
+	at org.testng.TestNG.run(TestNG.java:1101)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
+<tr>
 <td title='com.google.refine.expr.functions.strings.ParseUriTest.testParseUriInvalidParams()'><b>testParseUriInvalidParams</b><br>Test class: com.google.refine.expr.functions.strings.ParseUriTest</td>
 <td></td>
 <td>0</td>
@@ -1983,11 +1998,6 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.importers.JsonImporterTests@32675dd4</td></tr>
 <tr>
-<td title='com.google.refine.process.LongRunningProcessTests.serializeLongRunningProcess()'><b>serializeLongRunningProcess</b><br>Test class: com.google.refine.process.LongRunningProcessTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.process.LongRunningProcessTests@54d65dca</td></tr>
-<tr>
 <td title='com.google.refine.importers.RdfTripleImporterTests.canParseTtl()'><b>canParseTtl</b><br>Test class: com.google.refine.importers.RdfTripleImporterTests</td>
 <td></td>
 <td>0</td>
@@ -2088,11 +2098,6 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.grel.controls.WithTests@18744e18</td></tr>
 <tr>
-<td title='com.google.refine.importing.EncodingGuesserTests.testEncodingGuesser()'><b>testEncodingGuesser</b><br>Test class: com.google.refine.importing.EncodingGuesserTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.importing.EncodingGuesserTests@25fb792f</td></tr>
-<tr>
 <td title='com.google.refine.expr.functions.strings.ContainsTests.testContainsFunction()'><b>testContainsFunction</b><br>Test class: com.google.refine.expr.functions.strings.ContainsTests</td>
 <td></td>
 <td>0</td>
@@ -2142,11 +2147,6 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.importers.SeparatorBasedImporterTests@89ff043</td></tr>
-<tr>
-<td title='com.google.refine.process.HistoryProcessTests.serializeHistoryProcess()'><b>serializeHistoryProcess</b><br>Test class: com.google.refine.process.HistoryProcessTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.process.HistoryProcessTests@7643ae41</td></tr>
 <tr>
 <td title='com.google.refine.util.PatternSyntaxExceptionParserTests.unmatchedOpeningSquareBracketTest()'><b>unmatchedOpeningSquareBracketTest</b><br>Test class: com.google.refine.util.PatternSyntaxExceptionParserTests</td>
 <td></td>
@@ -2328,10 +2328,20 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.importers.MarcImporterTests@f451970</td></tr>
 <tr>
+<td title='com.google.refine.importing.ImportingUtilitiesTests.testTrailingSpaceInUrl()'><b>testTrailingSpaceInUrl</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
+<tr>
 <td title='com.google.refine.grel.controls.FilterTests.serializeFilter()'><b>serializeFilter</b><br>Test class: com.google.refine.grel.controls.FilterTests</td>
 <td></td>
 <td>0</td>
 <td>com.google.refine.grel.controls.FilterTests@390645a</td></tr>
+<tr>
+<td title='com.google.refine.process.HistoryProcessTests.serializeHistoryProcess()'><b>serializeHistoryProcess</b><br>Test class: com.google.refine.process.HistoryProcessTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.process.HistoryProcessTests@7643ae41</td></tr>
 <tr>
 <td title='com.google.refine.importers.SeparatorBasedImporterTests.trimAndAutodetectDatatype()'><b>trimAndAutodetectDatatype</b><br>Test class: com.google.refine.importers.SeparatorBasedImporterTests<br>Parameters: 	</td>
 <td></td>
@@ -2650,7 +2660,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.google.refine.exporters.XlsxExporterTests.exportSimpleXlsx()'><b>exportSimpleXlsx</b><br>Test class: com.google.refine.exporters.XlsxExporterTests</td>
 <td></td>
-<td>0</td>
+<td>1</td>
 <td>com.google.refine.exporters.XlsxExporterTests@10d60285</td></tr>
 <tr>
 <td title='com.google.refine.exporters.TemplatingExporterTests.exportEmptyTemplate()'><b>exportEmptyTemplate</b><br>Test class: com.google.refine.exporters.TemplatingExporterTests</td>
@@ -2677,6 +2687,11 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.expr.functions.strings.ReplaceEachTest@18d90d06</td></tr>
+<tr>
+<td title='com.google.refine.process.QuickHistoryEntryProcessTests.serializeQuickHistoryEntryProcess()'><b>serializeQuickHistoryEntryProcess</b><br>Test class: com.google.refine.process.QuickHistoryEntryProcessTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.process.QuickHistoryEntryProcessTests@3f8cd0b7</td></tr>
 <tr>
 <td title='com.google.refine.exporters.sql.SqlExporterTests.testExportSqlNoContent()'><b>testExportSqlNoContent</b><br>Test class: com.google.refine.exporters.sql.SqlExporterTests</td>
 <td></td>
@@ -3108,6 +3123,11 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.commands.CommandTests@4978a3f5</td></tr>
 <tr>
+<td title='com.google.refine.importing.ImportingManagerTests.testStructuredNameSuffixFallback()'><b>testStructuredNameSuffixFallback</b><br>Test class: com.google.refine.importing.ImportingManagerTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.importing.ImportingManagerTests@57c6c58b</td></tr>
+<tr>
 <td title='com.google.refine.model.recon.StandardReconConfigTests.batchReconTestConnectionError()'><b>batchReconTestConnectionError</b><br>Test class: com.google.refine.model.recon.StandardReconConfigTests</td>
 <td></td>
 <td>60</td>
@@ -3458,11 +3478,6 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.operations.column.ColumnMoveOperationTests@5a12819f</td></tr>
 <tr>
-<td title='com.google.refine.process.ProcessManagerTests.serializeProcessManager()'><b>serializeProcessManager</b><br>Test class: com.google.refine.process.ProcessManagerTests</td>
-<td></td>
-<td>1</td>
-<td>com.google.refine.process.ProcessManagerTests@17c8dbae</td></tr>
-<tr>
 <td title='com.google.refine.importers.SeparatorBasedImporterTests.readSimpleData_0Header_1Row()'><b>readSimpleData_0Header_1Row</b><br>Test class: com.google.refine.importers.SeparatorBasedImporterTests<br>Parameters: 	</td>
 <td></td>
 <td>0</td>
@@ -3721,11 +3736,6 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.model.RowTests@26ec9c1b</td></tr>
 <tr>
-<td title='com.google.refine.importing.ImportingUtilitiesTests.urlImportingInvalidProtocol()'><b>urlImportingInvalidProtocol</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
-<tr>
 <td title='com.google.refine.expr.functions.strings.DiffTests.testDiffInvalidParams()'><b>testDiffInvalidParams</b><br>Test class: com.google.refine.expr.functions.strings.DiffTests</td>
 <td></td>
 <td>0</td>
@@ -3816,11 +3826,6 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.exporters.TemplatingExporterTests@773a45bd</td></tr>
 <tr>
-<td title='com.google.refine.importing.ImportingUtilitiesTests.testTrailingSpaceInUrl()'><b>testTrailingSpaceInUrl</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
-<tr>
 <td title='com.google.refine.expr.util.JsonValueConverterTests.testConvertBool()'><b>testConvertBool</b><br>Test class: com.google.refine.expr.util.JsonValueConverterTests</td>
 <td></td>
 <td>0</td>
@@ -3876,11 +3881,6 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.google.refine.expr.functions.TimeSinceUnixEpochToDateTest@6fb1dd9d</td></tr>
 <tr>
-<td title='com.google.refine.importing.ImportingUtilitiesTests.urlImporting()'><b>urlImporting</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
-<tr>
 <td title='com.google.refine.importers.RdfTripleImporterTests.canParseNTriples()'><b>canParseNTriples</b><br>Test class: com.google.refine.importers.RdfTripleImporterTests</td>
 <td></td>
 <td>0</td>
@@ -3930,11 +3930,6 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.importers.SeparatorBasedImporterTests@89ff043</td></tr>
-<tr>
-<td title='com.google.refine.process.QuickHistoryEntryProcessTests.serializeQuickHistoryEntryProcess()'><b>serializeQuickHistoryEntryProcess</b><br>Test class: com.google.refine.process.QuickHistoryEntryProcessTests</td>
-<td></td>
-<td>0</td>
-<td>com.google.refine.process.QuickHistoryEntryProcessTests@3f8cd0b7</td></tr>
 <tr>
 <td title='com.google.refine.importers.MarcImporterTests.setsProjectMetadata()'><b>setsProjectMetadata</b><br>Test class: com.google.refine.importers.MarcImporterTests</td>
 <td></td>
@@ -4020,6 +4015,11 @@ function toggleAllBoxes() {
 <td></td>
 <td>0</td>
 <td>com.google.refine.commands.util.CancelProcessesCommandTests@7cc89f6</td></tr>
+<tr>
+<td title='com.google.refine.importing.ImportingUtilitiesTests.urlImporting()'><b>urlImporting</b><br>Test class: com.google.refine.importing.ImportingUtilitiesTests</td>
+<td></td>
+<td>0</td>
+<td>com.google.refine.importing.ImportingUtilitiesTests@76f097ec</td></tr>
 <tr>
 <td title='com.google.refine.operations.cell.MassOperationTests.testReconstructEditDate()'><b>testReconstructEditDate</b><br>Test class: com.google.refine.operations.cell.MassOperationTests</td>
 <td></td>

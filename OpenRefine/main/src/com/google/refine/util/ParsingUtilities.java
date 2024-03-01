@@ -46,10 +46,10 @@ import java.time.format.DateTimeParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.TimeZone;
+import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 
 import javax.servlet.http.HttpServletRequest;
@@ -112,19 +112,12 @@ public class ParsingUtilities {
      * @return Map containing parameter names and their first values.
      */
     public static Map<String, String> parseParameters(HttpServletRequest request) {
-        Map<String, String> options = new HashMap<>();
-
-        for (Map.Entry<String, String[]> entry : request.getParameterMap().entrySet()) {
-            String key = entry.getKey();
-            String value = entry.getValue()[0];
-            options.put(key, value);
-        }
-
-        return options;
+        return request.getParameterMap().entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue()[0]));
     }
 
     /**
-     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     * @deprecated Use {@link #parseParameters(HttpServletRequest request)} instead.
      */
     @Deprecated
     static public Properties parseUrlParameters(HttpServletRequest request) {
@@ -141,7 +134,7 @@ public class ParsingUtilities {
     }
 
     /**
-     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     * @deprecated Use {@link #parseParameters(HttpServletRequest request)} instead.
      */
     @Deprecated
     static public Properties parseParameters(Properties p, String str) {
@@ -158,7 +151,7 @@ public class ParsingUtilities {
     }
 
     /**
-     * @deprecated Use parseParameters(HttpServletRequest request) instead.
+     * @deprecated Use {@link #parseParameters(HttpServletRequest request)} instead.
      */
     @Deprecated
     static public Properties parseParameters(String str) {
