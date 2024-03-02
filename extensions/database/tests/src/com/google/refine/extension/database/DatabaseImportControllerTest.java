@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -143,6 +145,11 @@ public class DatabaseImportControllerTest extends DBExtensionTests {
         when(request.getQueryString()).thenReturn(
                 "http://127.0.0.1:3333/command/core/importing-controller?controller=database/database-import-controller&subCommand=initialize-parser-ui");
         when(response.getWriter()).thenReturn(pw);
+        
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put("controller", new String[] { "database/database-import-controller" });
+        parameters.put("subCommand", new String[] { "initialize-parser-ui" });
+        when(request.getParameterMap()).thenReturn(parameters);
 
         SUT.doPost(request, response);
 
@@ -167,6 +174,11 @@ public class DatabaseImportControllerTest extends DBExtensionTests {
                         + jobId + "&subCommand=parse-preview");
         when(response.getWriter()).thenReturn(pw);
 
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put("controller", new String[] { "database/database-import-controller" });
+        parameters.put("jobID", new String[] { String.valueOf(jobId)});
+        parameters.put("subCommand", new String[] { "parse-preview" });
+
         when(request.getParameter("databaseType")).thenReturn(testDbConfig.getDatabaseType());
         when(request.getParameter("databaseServer")).thenReturn(testDbConfig.getDatabaseHost());
         when(request.getParameter("databasePort")).thenReturn("" + testDbConfig.getDatabasePort());
@@ -175,6 +187,7 @@ public class DatabaseImportControllerTest extends DBExtensionTests {
         when(request.getParameter("initialDatabase")).thenReturn(testDbConfig.getDatabaseName());
         when(request.getParameter("query")).thenReturn(query);
         when(request.getParameter("options")).thenReturn(JSON_OPTION);
+        when(request.getParameterMap()).thenReturn(parameters);
 
         SUT.doPost(request, response);
 
@@ -199,6 +212,11 @@ public class DatabaseImportControllerTest extends DBExtensionTests {
                         + jobId + "&subCommand=create-project");
         when(response.getWriter()).thenReturn(pw);
 
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put("controller", new String[] { "database/database-import-controller" });
+        parameters.put("jobID", new String[] { String.valueOf(jobId) });
+        parameters.put("subCommand", new String[] { "create-project" });
+
         when(request.getParameter("databaseType")).thenReturn(testDbConfig.getDatabaseType());
         when(request.getParameter("databaseServer")).thenReturn(testDbConfig.getDatabaseHost());
         when(request.getParameter("databasePort")).thenReturn("" + testDbConfig.getDatabasePort());
@@ -207,6 +225,7 @@ public class DatabaseImportControllerTest extends DBExtensionTests {
         when(request.getParameter("initialDatabase")).thenReturn(testDbConfig.getDatabaseName());
         when(request.getParameter("query")).thenReturn(query);
         when(request.getParameter("options")).thenReturn(JSON_OPTION);
+        when(request.getParameterMap()).thenReturn(parameters);
 
         SUT.doPost(request, response);
 
