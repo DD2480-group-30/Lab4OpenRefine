@@ -221,15 +221,15 @@ PR Considered for acceptance (grading criteria 5): https://github.com/OpenRefine
 
 ### Test logs
 
-The results can be found at: doc/test-results
+The results can be found at: [doc/test-results](https://github.com/DD2480-group-30/Lab4OpenRefine/blob/master/doc/test-results)
 
 [View the results in your browser](https://htmlpreview.github.io/?https://github.com/DD2480-group-30/Lab4OpenRefine/blob/master/doc/test-resuts/Summarize.html)
 
 ## UML class diagram and its description
 
-Before: doc/UML-diagrams/UMLBefore.jpg
+Before: [doc/UML-diagrams/UMLBefore.jpg](https://github.com/DD2480-group-30/Lab4OpenRefine/blob/master/doc/UML-diagrams/UMLBefore.jpg)
 
-After: doc/UML-diagrams/UMLAfter.jpg
+After: [doc/UML-diagrams/UMLAfter.jpg](https://github.com/DD2480-group-30/Lab4OpenRefine/blob/master/doc/UML-diagrams/UMLAfter.jpg)
 
 ### Key changes/classes affected
 
