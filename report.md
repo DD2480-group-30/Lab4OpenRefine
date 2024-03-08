@@ -177,19 +177,27 @@ Time spent: 9.5 hrs (TODO update this section at end of project)
 | 30	| Reading the doc on test coverage for the project |
 | 30	| Inspecting the test coverage for the related code |
 | 30	| Time log |
+| 60	| Meeting to plan working on the second issue  |
+| 30	| Understanding the context of the issue  |
+| 60	| Disecting the work and creating issues  |
+| 180	| Implement issues  |
+| 90	| Code reviews  |
+| 90	| Updating the report  |
 
 #### Summary approximation
 
-1. plenary discussions/meetings: 1h
-2. discussions within parts of the group: 0.5h
+1. plenary discussions/meetings: 2h
+2. discussions within parts of the group: 1h
 3. reading documentation: 3.25h
 4. configuration and setup: 2h
-5. analyzing code/output: 2.75h
-6. writing documentation: 1.5h
-7. writing code: 0h
+5. analyzing code/output: 4.75h
+6. writing documentation: 4h
+7. writing code: 3h
 8. running code: 0.5h
 
 ## Overview of issue(s) and work done.
+
+### Issue 1
 
 #### Title:
 Remove use of java.util.Properties for URL query parsing
@@ -203,11 +211,65 @@ Deprecate old homegrown parsing methods of URLs and replace them with a new pars
 #### Scope (functionality and code affected):
 The proposed changes affect 10 different classes and 27 different methods. The functionality is almost the same as before, however, `java.util.Properties` is backed by a hashtable which means it doesn’t allow null values and it is always synchronized and therefore slow. The use of a `java.util.HashMap` fixes these problems
 
+
+
+
+#### Requirements
+1. **Deprecate methods:**
+Deprecate all methods in `ParsingUtilities` which return `java.util.Properties`. This includes the 3 methods with the following headers:
+    * `static public Properties parseUrlParameters(HttpServletRequest request)`
+    * `static public Properties parseParameters(Properties p, String str) {`
+    * `static public Properties parseParameters(String str)`
+
+
+2. **New parseParameters:**
+Create a replacement for `static public Properties parseUrlParameters(HttpServletRequest request)` with the signature `static public Map<String, String> parseParameters(HttpServletRequest request)` which uses available functionality for its implementation like `request.getParameterMap()`
+3. **Replace parseParameters:**
+Modify all uses of `parseUrlParameters` to use the new method and adjust all necessary code to accommodate the new return type. This needs to be changed in the following files:
+    * a. `extensions/database/src/com/google/refine/extension/database/DatabaseImportController.java`
+
+    * b. `extensions/gdata/src/com/google/refine/extension/gdata/GDataImportingController.java`
+
+    * c. `main/src/com/google/refine/commands/Command.java`
+
+    * d. `main/src/com/google/refine/commands/importing/ImportingControllerCommand.java`
+
+    * e. `main/src/com/google/refine/commands/project/CreateProjectCommand.java`
+
+    * f. `main/src/com/google/refine/commands/project/ImportProjectCommand.java`
+
+    * g. `main/src/com/google/refine/importing/DefaultImportingController.java`
+
+    * h. `main/tests/server/src/com/google/refine/importing/ImportingUtilitiesTests.java`
+
+4. **Preserve public APIs:** Make sure that none of the public API's are changed. Add new methods where needed, but don't remove or modify existing ones
+
+
+### Issue 2
+
+Repo: https://github.com/DD2480-group-30/OpenRefine
+
+#### Title:
+Replace Properties with Map<String, String> in Exporters interfaces 
+
+#### URL:
+https://github.com/OpenRefine/OpenRefine/issues/6403
+
+#### Summary:
+Phase out usage of java.util.Properties in Exporter API, in it's StreamExporter and WriterExporter subinterfaces. Each has a single method export() which includes a Properties-typed options parameter in its API. These should be replaced with a Map<String, String>. 
+
+#### Scope (functionality and code affected):
+The changes in WriterExport would affect 6 different classes with a total of 14 usages. The changes in StreamExporter would affect 2 different classes with a total of 8 usages. Considering the time limit, we only managed to changes in StreamExporter. The functionality havn't change. We implemented a new interface that extends the old one to make ensure backward compatibility. Both implementations of StreamExporter2 export method in (OdsExporter.java and XlsExporter.java) were done. Additionally, two references (CustomizableTabularExporterUtilities.exportRows and ExportRowsCommand.doPost) were made to accommadate the new changes.
+
+
 ### Requirements
-1. Deprecate all methods in `ParsingUtilities` which return `java.util.Properties`
-2. Create a replacement for `static public Properties parseUrlParameters(HttpServletRequest request)` with the signature `static public Map<String, String> parseParameters(HttpServletRequest request)` which uses available functionality for its implementation like `request.getParameterMap()`
-3. Modify all uses of `parseUrlParameters` to use the new method and adjust all necessary code to accommodate the new return type
-4. Preserve public APIs
+1. **New Interfaces:** Introduce new StreamExporter2 and WriterExporter2 interfaces which extends the old interfaces: To distinguish between the old ones and the new one. Add export method that takes Map<String, String> instead of java.util.Properties in the new interfaces: Abstract method that will be overriden in the classes.
+2. **Replace in XlsExport:** Implement the new export method in XlsExport.java: The export method is long. Extraction needed to minimize code duplication. 
+3. **Replace in OdsExport:** Implement the new export method in OdsExport.java to use the new method: 
+4. **Replace in exportRows:** Modify CustomizableTabularExporterUtilities.exportRows to use Map<String, String>: There is nested functions in the function. Extration needed to minimize code duplication
+5. **Replace in ExportRowsCommand** Modify Command.Project.ExportRowsCommand to use the new StreamExporter: getRequestParameters returns Properties, which is used by other class. A new method that return Map<String,String> is required in Command.Project.ExportRowsCommand.
+
+
 
 ## Code changes
 
