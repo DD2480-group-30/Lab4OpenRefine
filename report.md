@@ -120,9 +120,9 @@ Time spent: 9.5 hrs (TODO update this section at end of project)
 
 ### Ishaq
 
-#### Time log
-| Minutes | Description |
-|    :-----    |    :-----    |
+23 hours
+
+|	Minutes (up to 60)	|	Description	|
 |	60	|	Meeting	|
 |	60	|	Looking for a project and issues on the list	|
 |	60	|	Looking for a project and issues on the list	|
@@ -137,16 +137,27 @@ Time spent: 9.5 hrs (TODO update this section at end of project)
 |	30	|	UML class diagram before changes	|
 |	30	|	Summarizing test logs into single html	|
 |	20	|	Reviewing pull request	|
+|	60	|	Discussing issues	|
+|	30	|	Discussing issues	|
+|	60	|	Started working on new issue #6391 (writer option) before we decided to go with 6419	|
+|	30	|	Started working on new issue #6391 (writer option) before we decided to go with 6419	|
+|	60	|	Looked into the new issue 6419	|
+|	60	|	Writing code/planning for some subissues to 6419	|
+|	60	|	Writing code/planning for some subissues to 6419	|
+|	60	|	Reviewing pull request 	|
+|	60	|	Git issues with issues and config	|
+|	60	|	Continued writing code	|
+|	60	|	Writing code	|
+|	30	|	Writing report	|
 
 #### Summary approximation Ishaq
 1. plenary discussions/meetings: 1h
-2. discussions within parts of the group: 0h
+2. discussions within parts of the group: 1.5h
 3. reading documentation: 5h
 4. configuration and setup: 1h
 5. analyzing code/output: 30 m
-6. writing documentation: 3:30 h
-7. writing code: 0 m
-8. running code: 1h
+6. writing documentation: 8.5h
+7. writing code/running code: 5.5h
 
 ### Edvin
 
