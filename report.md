@@ -150,7 +150,7 @@ Time spent: 9.5 hrs (TODO update this section at end of project)
 
 ### Edvin
 
-11.5 Hours
+21 Hours
 
 #### Time log
 
