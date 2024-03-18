@@ -96,14 +96,15 @@ https://github.com/OpenRefine/OpenRefine/issues/6403
 Phase out usage of java.util.Properties in Exporter API, in it's StreamExporter and WriterExporter subinterfaces. Each has a single method export() which includes a Properties-typed options parameter in its API. These should be replaced with a Map<String, String>.
 
 #### Scope (functionality and code affected):
-The changes in WriterExport would affect 6 different classes with a total of 14 usages. The changes in StreamExporter would affect 2 different classes with a total of 8 usages. Considering the time limit, we only managed to changes in StreamExporter. The functionality havn't change. We implemented a new interface that extends the old one to make ensure backward compatibility. Both implementations of StreamExporter2 export method in (OdsExporter.java and XlsExporter.java) were done. Additionally, two references (CustomizableTabularExporterUtilities.exportRows and ExportRowsCommand.doPost) were made to accommadate the new changes.
+The changes in WriterExport would affect 6 different classes with a total of 14 usages. The changes in StreamExporter would affect 2 different classes with a total of 8 usages. Considering the time limit, we only managed to changes in StreamExporter. The functionality hasn’t changed. We implemented a new interface that extends the old one to make ensure backward compatibility. Both implementations of StreamExporter2 export method in (OdsExporter.java and XlsExporter.java) were done. Additionally, two references (CustomizableTabularExporterUtilities.exportRows and ExportRowsCommand.doPost) were made to accommodate the new changes.
 
+We also tested the second suggested method of instead modifying existing interfaces in the 4.0 branch since changes had already been made to the interfaces on that branch. 
 
 ### Requirements
-1. **New Interfaces:** Introduce new StreamExporter2 and WriterExporter2 interfaces which extends the old interfaces: To distinguish between the old ones and the new one. Add export method that takes Map<String, String> instead of java.util.Properties in the new interfaces: Abstract method that will be overriden in the classes.
+1. **New Interfaces:** Introduce new StreamExporter2 and WriterExporter2 interfaces which extends the old interfaces: To distinguish between the old ones and the new one. Add export method that takes Map<String, String> instead of java.util.Properties in the new interfaces: Abstract method that will be overridden in the classes.
 2. **Replace in XlsExport:** Implement the new export method in XlsExport.java: The export method is long. Extraction needed to minimize code duplication.
 3. **Replace in OdsExport:** Implement the new export method in OdsExport.java to use the new method:
-4. **Replace in exportRows:** Modify CustomizableTabularExporterUtilities.exportRows to use Map<String, String>: There is nested functions in the function. Extration needed to minimize code duplication
+4. **Replace in exportRows:** Modify CustomizableTabularExporterUtilities.exportRows to use Map<String, String>: There is nested functions in the function. Extraction needed to minimize code duplication
 5. **Replace in ExportRowsCommand** Modify Command.Project.ExportRowsCommand to use the new StreamExporter: getRequestParameters returns Properties, which is used by other class. A new method that return Map<String,String> is required in Command.Project.ExportRowsCommand.
 
 ## Code changes
